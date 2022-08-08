@@ -19,8 +19,9 @@ jobs:
         mv -f obj /tmp/artifact
 
       - persist_to_workspace:
-            root: /tmp/artifact
-            paths:
-              - *
+          root: /tmp/artifact
+          paths:
+            - *
 
-  
+      - store_artifacts:
+          path: /tmp/artifact
