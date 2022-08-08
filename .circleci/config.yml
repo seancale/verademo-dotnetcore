@@ -13,10 +13,10 @@ jobs:
       - checkout
 
       - run: |
-        dotnet build app/app.csproj -c Release &&
-        mkdir /tmp/artifact &&
-        mv -f bin /tmp/artifact &&
-        mv -f obj /tmp/artifact
+          dotnet build app/app.csproj -c Release &&
+          mkdir /tmp/artifact &&
+          mv -f bin /tmp/artifact &&
+          mv -f obj /tmp/artifact
 
       - persist_to_workspace:
           root: /tmp/artifact
