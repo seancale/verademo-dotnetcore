@@ -14,7 +14,7 @@ jobs:
 
       - run: |
           mkdir /tmp/artifact &&
-          dotnet publish -c Debug -o /tmp/artifact
+          dotnet publish app/app.csproj -c Debug -o /tmp/artifact
 
       - persist_to_workspace:
           root: /tmp/artifact
@@ -33,7 +33,7 @@ jobs:
           at: /tmp/artifact
 
       - run: |
-          zip -r /tmp/package.zip /tmp/artifact/* 
+          zip -r /tmp/package.zip /tmp/artifact/* &&
           java -jar /opt/veracode/api-wrapper.jar \
             -vid ${VCUSER} \
             -vkey ${VCUSERKEY} \
